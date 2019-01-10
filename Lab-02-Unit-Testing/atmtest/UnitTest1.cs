@@ -6,11 +6,6 @@ namespace atmtest
 {
     public class UnitTest1
     {
-        [Fact]
-        public void CanViewBalance()
-        {
-            Assert.True(Program.AddMoney(1.00));
-        }
 
         [Fact]
         public void CanAddMoney()
@@ -35,11 +30,11 @@ namespace atmtest
             Program.AddMoney(-40);
             Assert.Equal(50, Program.balance);
         }
-        public void 
-
-        [Fact]
 
         [Theory]
-        [InlineData("Success"), 10.00]
+        [InlineData("Success", 10.00, 20.00)]
+        [InlineData("Your are trying to withdraw an invalid amount", 0, 20)]
+        [InlineData("Sorry you can't do that", 30, 20)]
+        [InlineData("Success", 10.00, -100)]
     }
 }
