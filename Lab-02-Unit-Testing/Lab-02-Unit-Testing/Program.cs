@@ -85,9 +85,24 @@ namespace Lab_02_Unit_Testing
                 return $"Thank you. Your balance is {balance}";
             }
 
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
         }
+
+        public static string AddMoney(decimal selected)
+        {
+            if (selected > 0)
+            {
+                balance += selected;
+                return $"Thank you. Your balance is {balance}";
+            }
+            else
+            {
+                Console.WriteLine("Sorry, we were unable to process your transaction");
+                return "Sorry, we were unable to process your transaction";
+            }
+        }
+    }
 }

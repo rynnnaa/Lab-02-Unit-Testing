@@ -15,18 +15,29 @@ namespace atmtest
         [Fact]
         public void CanAddMoney()
         {
-            Program.Balance = 50;
+            Program.balance = 50;
             Program.AddMoney(45);
-            Assert.Equal(95, Program.Balance);
+            Assert.Equal(95, Program.balance);
+        }
+
+        [Fact]
+        public void CanWithdraw()
+        {
+            Program.balance = 50;
+            Program.WithdrawMethod(10);
+            Assert.Equal(40, Program.balance);
         }
 
         [Fact]
         public void CannotWithdraw()
         {
-            Program.Balance = 50;
-            Withdraw.AddMoney(45);
-            Assert.Equal(100, Program.Balance);
+            Program.balance = 50;
+            Program.AddMoney(-40);
+            Assert.Equal(50, Program.balance);
         }
+        public void 
+
+        [Fact]
 
         [Theory]
         [InlineData("Success"), 10.00]
