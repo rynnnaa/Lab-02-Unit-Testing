@@ -4,7 +4,7 @@ namespace Lab_02_Unit_Testing
 {
     public class Program
     {
-        public static decimal Balance = 1000;
+        public static decimal balance = 1000;
 
         static void Main(string[] args)
         {
@@ -33,19 +33,21 @@ namespace Lab_02_Unit_Testing
                         switch (selected)
                         {
                             case 1:
-                                Console.WriteLine($"Your current balance is {Balance}");
+                                Console.WriteLine($"Your current balance is {balance}");
                                 break;
                             case 2:
                                 Console.WriteLine($"What is your withdraw amount?");
                                 string withDraw = Console.ReadLine();
                                 value = Convert.ToInt32(withDraw);
-                                Console.WriteLine($"Your current balance is {Balance}");
+                                WithdrawMethod(selected);
+                                Console.WriteLine($"Your current balance is {balance}");
                                 break;
                             case 3:
                                 Console.WriteLine("How much money would you like to deposit?");
                                 string deposit = Console.ReadLine();
                                 value = Convert.ToInt32(deposit);
-                                Console.WriteLine($"Your balance is {Balance}");
+                                AddMoney(selected);
+                                Console.WriteLine($"Your balance is {balance}");
                                 break;
                             default:
                                 Environment.Exit(0);
@@ -65,5 +67,27 @@ namespace Lab_02_Unit_Testing
                 }
             }
         }
-    }
+
+        public static string WithdrawMethod(decimal selected)
+        {
+            try
+            {
+                if (selected > balance)
+                {
+                    return "${selected} is too much money";
+                }
+                else
+                {
+                    balance -= selected;
+                    Console.WriteLine($"You are finished with your Withdrawl, your balance is {balance}");
+                }
+
+                return $"Thank you. Your balance is {balance}";
+            }
+
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
 }
