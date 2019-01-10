@@ -13,7 +13,7 @@ namespace atmtest
         }
 
         [Fact]
-        public void AddMoneyCorrect()
+        public void CanAddMoney()
         {
             Program.Balance = 50;
             Program.AddMoney(45);
