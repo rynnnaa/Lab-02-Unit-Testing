@@ -39,14 +39,15 @@ namespace Lab_02_Unit_Testing
                                 Console.WriteLine($"What is your withdraw amount?");
                                 string withDraw = Console.ReadLine();
                                 value = Convert.ToInt32(withDraw);
-                                WithdrawMethod(selected);
+                                WithdrawMethod(value);
                                 Console.WriteLine($"Your current balance is {balance}");
                                 break;
                             case 3:
+
                                 Console.WriteLine("How much money would you like to deposit?");
                                 string deposit = Console.ReadLine();
                                 value = Convert.ToInt32(deposit);
-                                AddMoney(selected);
+                                AddMoney(value);
                                 Console.WriteLine($"Your balance is {balance}");
                                 break;
                             default:
@@ -76,9 +77,16 @@ namespace Lab_02_Unit_Testing
                 {
                     return "${selected} is too much money";
                 }
+
+                else if (selected <= 0)
+                {    
+                    Console.WriteLine("Amount was not valid");
+                    return "Amount was not valid";
+                }
+
                 else
                 {
-                    balance -= selected;
+                    balance = balance - selected;
                     Console.WriteLine($"You are finished with your Withdrawl, your balance is {balance}");
                 }
 
