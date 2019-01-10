@@ -9,10 +9,11 @@ namespace Lab_02_Unit_Testing
         static void Main(string[] args)
         {
             Console.WriteLine("Ryna's International ATM");
+            ATM();
         }
 
-     public static void ATM()
-    {
+        public static void ATM()
+        {
             bool isWorking = true;
 
             while (isWorking)
@@ -24,28 +25,43 @@ namespace Lab_02_Unit_Testing
                 Console.WriteLine("4. Exit");
                 try
                 {
-
                     string selectedOption = Console.ReadLine();
-                    decimal value;
-                    switch (number)
+                    int selected = Convert.ToInt32(selectedOption);
+                    if (selected == 1 || selected == 2 || selected == 3 || selected == 4)
                     {
-                        case 1:
-                            Console.WriteLine($"Your current balance is {Balance}");
-                            break;
-                        case 2:
-                            Console.WriteLine($"How much would you like to withdraw?");
-                            Double.TryParse(Console.ReadLine(), out value);
-                            Withdraw(value);
-                            break;
-                        case 3:
-                            Console.WriteLine("How much money would you like to deposit?");
-                            Decimal.TryParse(Console.ReadLine(), out value);
-                            Console.WriteLine(AddMoney(value) ? "Your money has been deposited" : "You cannot Deposit");
-                            break;
-                        default:
-                            Environment.Exit(0);
-                            break;
+                        decimal value;
+                        switch (selected)
+                        {
+                            case 1:
+                                Console.WriteLine($"Your current balance is {Balance}");
+                                break;
+                            case 2:
+                                Console.WriteLine($"What is your withdraw amount?");
+                                string withDraw = Console.ReadLine();
+                                value = Convert.ToInt32(withDraw);
+                                Console.WriteLine($"Your current balance is {Balance}");
+                                break;
+                            case 3:
+                                Console.WriteLine("How much money would you like to deposit?");
+                                string deposit = Console.ReadLine();
+                                value = Convert.ToInt32(deposit);
+                                Console.WriteLine($"Your balance is {Balance}");
+                                break;
+                            default:
+                                Environment.Exit(0);
+                                break;
+
+                        }
                     }
+                    else
+                    {
+                        Console.WriteLine("Please select a one of the options: 1, 2, 3, 4");
+                        ATM();
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("That is not one of the options");
                 }
             }
         }
