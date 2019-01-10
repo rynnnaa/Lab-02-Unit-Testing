@@ -20,6 +20,4 @@ Here is a visual of what the program looks like.
 
 Successful Output
 
-![../../../assets]
-
-Lab40102
+![Lab-2-Unit-testing](https://github.com/rynnnaa/Lab-02-Unit-Testing/blob/master/assets/Capture.PNG)
